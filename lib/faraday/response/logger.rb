@@ -20,7 +20,7 @@ module Faraday
     def call(env)
       info "#{env.method} #{env.url.to_s}"
       debug('request') { dump_headers env.request_headers }
-      debug('request') { dump_body(env[:body]) } if env[:body] && log_body?(:request)
+      debug('request') { dump_body(env[:request_body]) } if env[:request_body] && log_body?(:request)
       super
     end
 
